@@ -1,10 +1,13 @@
-# SimulaParc — Simulador de Parcelas
+# Simulador de Parcelas
 
 > Simulador de parcelamentos com ou sem juros, desenvolvido com HTML, CSS e JavaScript puro.
 
-![SimulaParc Preview](https://img.shields.io/badge/JavaScript-Vanilla-yellow?logo=javascript) ![CSS](https://img.shields.io/badge/CSS-Custom-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-## ✨ Funcionalidades
+# Demo ao vivo
+
+[Acessar o simulador](https://Tsilveira-dev.github.io/calculadora)
+
+# Funcionalidades
 
 - **Simulação sem juros** — divide o valor igualmente pelas parcelas
 - **Simulação com juros mensais ou anuais** — usa a Tabela Price (sistema francês)
@@ -14,12 +17,12 @@
 - **Exportar CSV** — baixe o cronograma em planilha
 - **Design responsivo** — funciona em mobile e desktop
 
-## 🚀 Como usar
+# Como usar
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/simulaparc.git
-   cd simulaparc
+   git clone https://github.com/seu-usuario/simuladorparcela.git
+   cd simuladorparcela
    ```
 
 2. Abra o `index.html` no navegador (sem servidor necessário!):
@@ -29,7 +32,7 @@
    open index.html
    ```
 
-## 🔢 Como funciona o cálculo
+# Como funciona o cálculo
 
 ### Sem juros
 ```
@@ -47,7 +50,7 @@ Onde:
   n   = número de parcelas
 ```
 
-## 📁 Estrutura
+# Estrutura
 
 ```
 simulaparc/
@@ -57,13 +60,13 @@ simulaparc/
 └── README.md
 ```
 
-## 🛠 Tecnologias
+# Tecnologias
 
 - **HTML5** semântico
 - **CSS3** com custom properties (variáveis), Grid, Flexbox, animações
 - **JavaScript ES6+** vanilla (sem frameworks ou dependências)
 - **Google Fonts** — Space Grotesk + JetBrains Mono
 
-## 📄 Licença
+# Licença
 
 MIT — use livremente para estudos e portfólio.
