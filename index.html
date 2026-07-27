@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimulaParc — Simulador de Parcelas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">SimulaParc</span>
+      </div>
+      <nav class="header-nav">
+        <a href="#simulator">Simular</a>
+        <a href="#results">Resultado</a>
+        <a href="#about">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Simulador de Parcelas</p>
+      <h1 class="hero-title">
+        Descubra o <br/>
+        <span class="accent-word">verdadeiro custo</span><br/>
+        das suas compras.
+      </h1>
+      <p class="hero-sub">Simule parcelamentos com ou sem juros, compare cenários e tome decisões mais inteligentes.</p>
+      <a href="#simulator" class="hero-cta">Começar simulação</a>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card card-1">
+        <span class="card-label">Juros totais</span>
+        <span class="card-value" id="hero-interest">R$ —</span>
+      </div>
+      <div class="floating-card card-2">
+        <span class="card-label">Parcela mensal</span>
+        <span class="card-value" id="hero-installment">R$ —</span>
+      </div>
+      <div class="ticker-tape">
+        <span>✦ Sem juros &nbsp;&nbsp; ✦ Taxa mensal &nbsp;&nbsp; ✦ Taxa anual &nbsp;&nbsp; ✦ Tabela Price &nbsp;&nbsp; ✦ Exportar CSV &nbsp;&nbsp; ✦ Sem juros &nbsp;&nbsp; ✦ Taxa mensal &nbsp;&nbsp; ✦ Taxa anual &nbsp;&nbsp;</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="simulator" id="simulator">
+    <div class="container">
+      <div class="section-label">01 — Entrada de dados</div>
+      <h2 class="section-title">Configure sua simulação</h2>
+
+      <div class="sim-grid">
+        <div class="sim-form">
+
+          <div class="field-group">
+            <label for="price">Valor do produto</label>
+            <div class="input-wrapper">
+              <span class="input-prefix">R$</span>
+              <input type="text" id="price" placeholder="0,00" inputmode="decimal" autocomplete="off"/>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="down">Entrada (opcional)</label>
+            <div class="input-wrapper">
+              <span class="input-prefix">R$</span>
+              <input type="text" id="down" placeholder="0,00" inputmode="decimal" autocomplete="off"/>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Tipo de juros</label>
+            <div class="toggle-group">
+              <button class="toggle-btn active" data-mode="none">Sem juros</button>
+              <button class="toggle-btn" data-mode="monthly">Ao mês</button>
+              <button class="toggle-btn" data-mode="annual">Ao ano</button>
+            </div>
+          </div>
+
+          <div class="field-group" id="rate-group" style="display:none;">
+            <label for="rate" id="rate-label">Taxa de juros</label>
+            <div class="input-wrapper">
+              <input type="text" id="rate" placeholder="0,00" inputmode="decimal" autocomplete="off"/>
+              <span class="input-suffix" id="rate-suffix">% a.m.</span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Número de parcelas</label>
+            <div class="installments-grid">
+              <button class="inst-btn active" data-n="1">1x</button>
+              <button class="inst-btn" data-n="2">2x</button>
+              <button class="inst-btn" data-n="3">3x</button>
+              <button class="inst-btn" data-n="4">4x</button>
+              <button class="inst-btn" data-n="5">5x</button>
+              <button class="inst-btn" data-n="6">6x</button>
+              <button class="inst-btn" data-n="7">7x</button>
+              <button class="inst-btn" data-n="8">8x</button>
+              <button class="inst-btn" data-n="9">9x</button>
+              <button class="inst-btn" data-n="10">10x</button>
+              <button class="inst-btn" data-n="11">11x</button>
+              <button class="inst-btn" data-n="12">12x</button>
+            </div>
+            <div style="margin-top:12px">
+              <label for="custom-n" style="font-size:0.82rem;color:var(--muted)">Ou digite outro valor</label>
+              <div class="input-wrapper" style="margin-top:6px">
+                <input type="number" id="custom-n" placeholder="Ex: 24" min="1" max="360"/>
+                <span class="input-suffix">x</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="sim-btn" id="simulate-btn">
+            <span>Simular agora</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="live-preview">
+          <div class="preview-header">Prévia em tempo real</div>
+          <div class="preview-card">
+            <div class="preview-row"><span>Valor do produto</span><strong id="prev-price">—</strong></div>
+            <div class="preview-row"><span>Entrada</span><strong id="prev-down">—</strong></div>
+            <div class="preview-row"><span>Valor financiado</span><strong id="prev-financed">—</strong></div>
+            <div class="preview-divider"></div>
+            <div class="preview-row big"><span>Parcela mensal</span><strong id="prev-installment">—</strong></div>
+            <div class="preview-row big"><span>Total pago</span><strong id="prev-total">—</strong></div>
+            <div class="preview-row accent"><span>Juros totais</span><strong id="prev-interest">—</strong></div>
+          </div>
+
+          <div class="bar-section">
+            <div class="bar-labels">
+              <span class="dot-principal">● Principal</span>
+              <span class="dot-interest">● Juros</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill bar-principal" id="bar-principal" style="width:100%"></div>
+              <div class="bar-fill bar-interest" id="bar-interest" style="width:0%"></div>
+            </div>
+            <div class="bar-pcts">
+              <span id="pct-principal">100%</span>
+              <span id="pct-interest">0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results" id="results">
+    <div class="container">
+      <div class="section-label">02 — Resultado</div>
+      <h2 class="section-title">Detalhamento</h2>
+
+      <div class="results-empty" id="results-empty">
+        <div class="empty-icon">📊</div>
+        <p>Preencha os dados e clique em <strong>Simular agora</strong>.</p>
+      </div>
+
+      <div id="results-content" style="display:none">
+        <div class="result-cards-row">
+          <div class="result-card">
+            <span class="rc-label">Parcela mensal</span>
+            <span class="rc-value" id="rc-installment">—</span>
+            <span class="rc-sub" id="rc-n-label">—</span>
+          </div>
+          <div class="result-card featured">
+            <span class="rc-label">Total pago</span>
+            <span class="rc-value" id="rc-total">—</span>
+            <span class="rc-sub" id="rc-interest-label">—</span>
+          </div>
+          <div class="result-card">
+            <span class="rc-label">Custo efetivo</span>
+            <span class="rc-value" id="rc-cet">—</span>
+            <span class="rc-sub">sobre o valor original</span>
+          </div>
+        </div>
+
+        <div class="table-section">
+          <div class="table-header-row">
+            <span>Cronograma de pagamentos</span>
+            <button class="export-btn" id="export-btn">⬇ Exportar CSV</button>
+          </div>
+          <div class="table-wrapper">
+            <table id="schedule-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Vencimento</th>
+                  <th>Parcela</th>
+                  <th>Juros</th>
+                  <th>Amortização</th>
+                  <th>Saldo devedor</th>
+                </tr>
+              </thead>
+              <tbody id="schedule-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare-section" id="compare">
+    <div class="container">
+      <div class="section-label">03 — Comparação</div>
+      <h2 class="section-title">Compare cenários</h2>
+      <p class="section-desc">Como o número de parcelas muda o custo total com a mesma taxa.</p>
+      <div class="compare-grid" id="compare-grid">
+        <p class="compare-placeholder">Simule primeiro para ver a comparação.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-label">04 — Como funciona</div>
+      <h2 class="section-title">Entenda os cálculos</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <span class="about-icon">🔢</span>
+          <h3>Sem juros</h3>
+          <p>O valor financiado é dividido igualmente. <br/><code>Parcela = Financiado ÷ n</code></p>
+        </div>
+        <div class="about-card">
+          <span class="about-icon">📐</span>
+          <h3>Com juros (Price)</h3>
+          <p>Sistema francês de amortização. <br/><code>PMT = PV × i(1+i)ⁿ / [(1+i)ⁿ−1]</code></p>
+        </div>
+        <div class="about-card">
+          <span class="about-icon">📅</span>
+          <h3>Cronograma</h3>
+          <p>Cada linha mostra quanto vai para juros e quanto amortiza a dívida mês a mês.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>SimulaParc · JavaScript puro · <a href="https://github.com" target="_blank">Ver no GitHub ↗</a></p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
