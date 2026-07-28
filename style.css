@@ -1,6 +1,4 @@
-/* ===========================
-   TOKENS & RESET
-   =========================== */
+
 :root {
   --bg: #0a0a0f;
   --surface: #13131a;
@@ -26,7 +24,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-display);
+  font-family: 'Andale Mono', monospace;
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
@@ -46,9 +44,7 @@ code {
   color: var(--accent2);
 }
 
-/* ===========================
-   HEADER
-   =========================== */
+
 .header {
   position: sticky;
   top: 0;
@@ -88,9 +84,7 @@ code {
 .header-nav a { color: var(--muted); font-size: 0.9rem; font-weight: 500; transition: color var(--transition); }
 .header-nav a:hover { color: var(--text); text-decoration: none; }
 
-/* ===========================
-   HERO
-   =========================== */
+
 .hero {
   min-height: 88vh;
   display: grid;
@@ -143,7 +137,7 @@ code {
 }
 .hero-cta:hover { background: #6a50e8; transform: translateY(-2px); text-decoration: none; box-shadow: 0 0 40px var(--accent-glow); }
 
-/* HERO VISUAL */
+
 .hero-visual {
   position: relative;
   height: 340px;
@@ -202,9 +196,7 @@ code {
   to { transform: translateX(-50%); }
 }
 
-/* ===========================
-   SECTIONS SHARED
-   =========================== */
+
 .simulator, .results, .compare-section, .about {
   padding: 80px 0;
   border-top: 1px solid var(--border);
@@ -228,9 +220,7 @@ code {
 
 .section-desc { color: var(--muted); margin-top: -36px; margin-bottom: 36px; }
 
-/* ===========================
-   SIMULATOR GRID
-   =========================== */
+
 .simulator .container, .results .container, .compare-section .container, .about .container {
   max-width: 1100px; margin: 0 auto; padding: 0 24px;
 }
@@ -242,7 +232,7 @@ code {
   align-items: start;
 }
 
-/* FORM */
+
 .sim-form {
   display: flex;
   flex-direction: column;
@@ -296,7 +286,7 @@ input[type="number"] { -moz-appearance: textfield; }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
 
-/* TOGGLE */
+
 .toggle-group {
   display: flex;
   gap: 8px;
@@ -318,7 +308,7 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
 .toggle-btn:hover { border-color: var(--accent); color: var(--text); }
 .toggle-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-/* INSTALLMENTS GRID */
+
 .installments-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -340,7 +330,7 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
 .inst-btn:hover { border-color: var(--accent); color: var(--text); }
 .inst-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-/* SIM BUTTON */
+
 .sim-btn {
   display: flex;
   align-items: center;
@@ -362,9 +352,7 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
 .sim-btn svg { width: 18px; height: 18px; }
 .sim-btn.loading { opacity: 0.7; pointer-events: none; }
 
-/* ===========================
-   LIVE PREVIEW
-   =========================== */
+
 .live-preview {
   position: sticky;
   top: 80px;
@@ -404,7 +392,7 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
   margin: 4px 0;
 }
 
-/* BAR */
+
 .bar-section {
   padding: 16px 20px 20px;
   border-top: 1px solid var(--border);
@@ -440,9 +428,7 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
   margin-top: 6px;
 }
 
-/* ===========================
-   RESULTS
-   =========================== */
+
 .results-empty {
   text-align: center;
   padding: 60px;
@@ -478,7 +464,7 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
 .rc-value { font-family: var(--font-mono); font-size: 1.7rem; font-weight: 700; color: var(--text); line-height: 1.2; }
 .rc-sub { font-size: 0.8rem; color: var(--muted); }
 
-/* TABLE */
+
 .table-section {
   background: var(--surface);
   border: 1.5px solid var(--border);
@@ -545,9 +531,7 @@ tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover td { background: var(--surface2); }
 tbody tr.row-interest td { color: var(--red); }
 
-/* ===========================
-   COMPARE
-   =========================== */
+
 .compare-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -576,9 +560,7 @@ tbody tr.row-interest td { color: var(--red); }
 .cc-interest { font-size: 0.8rem; color: var(--red); }
 .cc-badge { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent2); margin-top: 4px; }
 
-/* ===========================
-   ABOUT
-   =========================== */
+
 .about-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -598,9 +580,7 @@ tbody tr.row-interest td { color: var(--red); }
 .about-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
 .about-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
 
-/* ===========================
-   FOOTER
-   =========================== */
+
 .footer {
   border-top: 1px solid var(--border);
   padding: 28px 0;
@@ -610,9 +590,7 @@ tbody tr.row-interest td { color: var(--red); }
 }
 .footer a { color: var(--accent); }
 
-/* ===========================
-   TOAST
-   =========================== */
+
 .toast {
   position: fixed;
   bottom: 24px;
@@ -633,9 +611,7 @@ tbody tr.row-interest td { color: var(--red); }
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-/* ===========================
-   RESPONSIVE
-   =========================== */
+
 @media (max-width: 768px) {
   .hero { grid-template-columns: 1fr; padding: 48px 24px; min-height: auto; }
   .hero-visual { display: none; }
@@ -654,7 +630,7 @@ tbody tr.row-interest td { color: var(--red); }
   .compare-grid { grid-template-columns: 1fr 1fr; }
 }
 
-/* Scrollbar */
+
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--surface); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }

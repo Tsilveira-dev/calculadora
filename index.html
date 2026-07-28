@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SimulaParc — Simulador de Parcelas</title>
+  <title>Simulador de Parcelas — Simulador de Parcelas</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 </head>
@@ -12,8 +12,8 @@
   <header class="header">
     <div class="header-inner">
       <div class="logo">
-        <span class="logo-mark">S</span>
-        <span class="logo-text">SimulaParc</span>
+        <span class="logo-mark">SP</span>
+        <span class="logo-text">Simulador de Parcelas</span>
       </div>
       <nav class="header-nav">
         <a href="#simulator">Simular</a>
@@ -44,7 +44,7 @@
         <span class="card-value" id="hero-installment">R$ —</span>
       </div>
       <div class="ticker-tape">
-        <span>✦ Sem juros &nbsp;&nbsp; ✦ Taxa mensal &nbsp;&nbsp; ✦ Taxa anual &nbsp;&nbsp; ✦ Tabela Price &nbsp;&nbsp; ✦ Exportar CSV &nbsp;&nbsp; ✦ Sem juros &nbsp;&nbsp; ✦ Taxa mensal &nbsp;&nbsp; ✦ Taxa anual &nbsp;&nbsp;</span>
+        <span>✦ Sem juros &nbsp;&nbsp; ✦ Taxa mensal &nbsp;&nbsp; ✦ Taxa anual &nbsp;&nbsp; ✦ Sem juros &nbsp;&nbsp; ✦ Taxa mensal &nbsp;&nbsp; ✦ Taxa anual &nbsp;&nbsp;</span>
       </div>
     </div>
   </section>
@@ -223,17 +223,15 @@
       <h2 class="section-title">Entenda os cálculos</h2>
       <div class="about-grid">
         <div class="about-card">
-          <span class="about-icon">🔢</span>
           <h3>Sem juros</h3>
           <p>O valor financiado é dividido igualmente. <br/><code>Parcela = Financiado ÷ n</code></p>
         </div>
         <div class="about-card">
-          <span class="about-icon">📐</span>
           <h3>Com juros (Price)</h3>
           <p>Sistema francês de amortização. <br/><code>PMT = PV × i(1+i)ⁿ / [(1+i)ⁿ−1]</code></p>
         </div>
         <div class="about-card">
-          <span class="about-icon">📅</span>
+          
           <h3>Cronograma</h3>
           <p>Cada linha mostra quanto vai para juros e quanto amortiza a dívida mês a mês.</p>
         </div>
